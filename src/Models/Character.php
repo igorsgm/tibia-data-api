@@ -307,5 +307,4 @@ class Character implements \JsonSerializable
     {
         return $this->other_characters;
     }
-
 }

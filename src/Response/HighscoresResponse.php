@@ -57,5 +57,4 @@ class HighscoresResponse extends AbstractResponse
     {
         return $this->highscores;
     }
-
 }

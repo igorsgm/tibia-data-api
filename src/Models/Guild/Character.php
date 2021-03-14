@@ -118,5 +118,4 @@ class Character implements JsonSerializable
     {
         return $this->status;
     }
-
 }

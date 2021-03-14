@@ -48,5 +48,4 @@ class HousesResource extends AbstractResource
     {
         return [self::TYPE_HOUSES, self::TYPE_GUILDHALLS];
     }
-
 }

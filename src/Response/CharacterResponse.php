@@ -69,7 +69,9 @@ class CharacterResponse extends AbstractResponse
         if (!empty($response->characters->account_information)) {
             foreach ($response->characters->other_characters as $other_character) {
                 $other_characters[] = new OtherCharacter(
-                    $other_character->name, $other_character->world, $other_character->status
+                    $other_character->name,
+                    $other_character->world,
+                    $other_character->status
                 );
             }
         }
@@ -118,5 +120,4 @@ class CharacterResponse extends AbstractResponse
     {
         return $this->character;
     }
-
 }

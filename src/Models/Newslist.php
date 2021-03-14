@@ -40,5 +40,4 @@ class Newslist implements \JsonSerializable
     {
         return $this->news;
     }
-
 }

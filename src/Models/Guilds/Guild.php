@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace Igorsgm\TibiaDataApi\Models\Guilds;
 
@@ -79,5 +79,4 @@ class Guild implements JsonSerializable
     {
         return $this->is_active;
     }
-
 }

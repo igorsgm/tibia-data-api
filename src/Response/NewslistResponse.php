@@ -48,5 +48,4 @@ class NewslistResponse extends AbstractResponse
     {
         return $this->newslist;
     }
-
 }

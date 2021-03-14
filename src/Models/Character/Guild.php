@@ -50,5 +50,4 @@ class Guild implements JsonSerializable
     {
         return $this->rank;
     }
-
 }

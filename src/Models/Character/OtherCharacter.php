@@ -65,5 +65,4 @@ class OtherCharacter implements JsonSerializable
     {
         return $this->status;
     }
-
 }

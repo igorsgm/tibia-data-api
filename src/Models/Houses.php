@@ -79,5 +79,4 @@ class Houses implements \JsonSerializable
     {
         return $this->houses;
     }
-
 }

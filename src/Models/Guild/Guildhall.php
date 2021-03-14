@@ -97,5 +97,4 @@ class Guildhall implements JsonSerializable
     {
         return $this->houseid;
     }
-
 }

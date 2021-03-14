@@ -277,5 +277,4 @@ class Guild implements JsonSerializable
     {
         return $this->invited;
     }
-
 }

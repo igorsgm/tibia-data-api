@@ -21,5 +21,4 @@ class CharactersResource extends AbstractResource
 
         return new CharacterResponse($response);
     }
-
 }

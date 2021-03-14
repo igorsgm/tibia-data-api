@@ -51,5 +51,4 @@ class GuildsResponse extends AbstractResponse
     {
         return $this->guilds;
     }
-
 }

@@ -81,5 +81,4 @@ class Death implements JsonSerializable
     {
         return $this->involved;
     }
-
 }

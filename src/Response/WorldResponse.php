@@ -31,7 +31,9 @@ class WorldResponse extends AbstractResponse
         $players_online = [];
         foreach ($response->world->players_online as $player) {
             $players_online[] = new Character(
-                $player->name, $player->level, $player->vocation
+                $player->name,
+                $player->level,
+                $player->vocation
             );
         }
 
@@ -63,5 +65,4 @@ class WorldResponse extends AbstractResponse
     {
         return $this->world;
     }
-
 }

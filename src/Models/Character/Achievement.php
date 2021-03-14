@@ -50,5 +50,4 @@ class Achievement implements JsonSerializable
     {
         return $this->stars;
     }
-
 }

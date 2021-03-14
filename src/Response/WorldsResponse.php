@@ -27,7 +27,11 @@ class WorldsResponse extends AbstractResponse
         $worlds = [];
         foreach ($response->worlds->allworlds as $world) {
             $worlds[] = new World(
-                $world->name, $world->online, $world->location, $world->worldtype, $world->additional
+                $world->name,
+                $world->online,
+                $world->location,
+                $world->worldtype,
+                $world->additional
             );
         }
 
@@ -43,5 +47,4 @@ class WorldsResponse extends AbstractResponse
     {
         return $this->worlds;
     }
-
 }

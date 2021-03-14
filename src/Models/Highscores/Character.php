@@ -93,5 +93,4 @@ class Character implements \JsonSerializable
     {
         return $this->level;
     }
-
 }

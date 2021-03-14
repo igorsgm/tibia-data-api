@@ -126,5 +126,4 @@ class World implements JsonSerializable
     {
         return strpos($this->additional, 'experimental game world') !== false;
     }
-
 }

@@ -64,5 +64,4 @@ class Highscores implements \JsonSerializable
     {
         return $this->highscores;
     }
-
 }

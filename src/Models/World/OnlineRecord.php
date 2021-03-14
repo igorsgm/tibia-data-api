@@ -50,5 +50,4 @@ class OnlineRecord implements JsonSerializable
     {
         return $this->date;
     }
-
 }

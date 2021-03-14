@@ -78,5 +78,4 @@ class Information implements \JsonSerializable
     {
         return $this->timestamp;
     }
-
 }

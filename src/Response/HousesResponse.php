@@ -29,14 +29,20 @@ class HousesResponse extends AbstractResponse
             throw new NotFoundException('World does not exists.');
         }
 
-        if (count($response->houses->houses) === 1 && $response->houses->houses[0]->name === 'No houses or flats found.') {
+        if (count($response->houses->houses) === 1
+            && $response->houses->houses[0]->name === 'No houses or flats found.'
+        ) {
             throw new NotFoundException('Town seems to not exists. Are you sure you type town that has houses?');
         }
 
         $houses = array();
         foreach ($response->houses->houses as $house) {
             $houses[] = new House(
-                $house->houseid, $house->name, $house->size, $house->rent, $house->status
+                $house->houseid,
+                $house->name,
+                $house->size,
+                $house->rent,
+                $house->status
             );
         }
 
@@ -52,5 +58,4 @@ class HousesResponse extends AbstractResponse
     {
         return $this->houses;
     }
-
 }

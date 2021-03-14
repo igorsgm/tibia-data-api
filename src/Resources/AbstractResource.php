@@ -51,5 +51,4 @@ class AbstractResource
 
         return json_decode($response->getBody()->getContents());
     }
-
 }

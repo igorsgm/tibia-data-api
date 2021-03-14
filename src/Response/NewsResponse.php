@@ -46,5 +46,4 @@ class NewsResponse extends AbstractResponse
     {
         return $this->news;
     }
-
 }

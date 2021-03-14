@@ -49,5 +49,4 @@ class Worlds implements \JsonSerializable
     {
         return $this->worlds;
     }
-
 }

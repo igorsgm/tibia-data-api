@@ -102,5 +102,4 @@ class House implements JsonSerializable
     {
         return $this->status === 'rented';
     }
-
 }

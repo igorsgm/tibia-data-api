@@ -105,5 +105,4 @@ class TibiaDataApi
     {
         return app()->make(WorldsResource::class);
     }
-
 }

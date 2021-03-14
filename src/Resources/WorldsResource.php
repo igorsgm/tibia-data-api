@@ -33,5 +33,4 @@ class WorldsResource extends AbstractResource
 
         return new WorldsResponse($response);
     }
-
 }

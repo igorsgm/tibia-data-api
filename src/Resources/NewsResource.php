@@ -44,5 +44,4 @@ class NewsResource extends AbstractResource
 
         return new NewslistResponse($response);
     }
-
 }

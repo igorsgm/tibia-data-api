@@ -80,5 +80,4 @@ class News implements JsonSerializable
     {
         return $this->date;
     }
-
 }

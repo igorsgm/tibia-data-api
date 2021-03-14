@@ -87,5 +87,4 @@ class HighscoresResource extends AbstractResource
             self::VOC_ALL, self::VOC_NONE, self::VOC_DRUID, self::VOC_KNIGHT, self::VOC_PALADIN, self::VOC_SORCERER,
         ];
     }
-
 }

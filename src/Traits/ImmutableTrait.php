@@ -36,5 +36,4 @@ trait ImmutableTrait
     {
         throw new ImmutableException();
     }
-
 }

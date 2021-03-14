@@ -50,5 +50,4 @@ class Members implements JsonSerializable
     {
         return $this->characters;
     }
-
 }

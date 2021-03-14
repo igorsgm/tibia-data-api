@@ -21,5 +21,4 @@ class GuildResource extends AbstractResource
 
         return new GuildResponse($response);
     }
-
 }

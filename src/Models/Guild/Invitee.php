@@ -52,5 +52,4 @@ class Invitee implements JsonSerializable
     {
         return $this->invited;
     }
-
 }

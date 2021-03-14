@@ -180,5 +180,4 @@ class World implements \JsonSerializable
         preg_match('/Protected by BattlEye since ([a-zA-Z0-9, ]+)\./', $this->battleye_status, $matches);
         return new \DateTime::createFromFormat('F d, Y', $matches[1]);
     }
-
 }

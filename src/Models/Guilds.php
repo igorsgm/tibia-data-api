@@ -64,5 +64,4 @@ class Guilds implements \JsonSerializable
     {
         return $this->formation;
     }
-
 }

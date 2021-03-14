@@ -52,5 +52,4 @@ class AccountInformation implements JsonSerializable
     {
         return $this->created;
     }
-
 }

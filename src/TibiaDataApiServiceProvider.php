@@ -54,7 +54,7 @@ class TibiaDataApiServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('tibia-data-api', function () {
-            return new TibiaDataApi;
+            return new TibiaDataApi();
         });
     }
 }

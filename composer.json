@@ -1,0 +1,54 @@
+{
+    "name": "igorsgm/tibia-data-api",
+    "description": "A library that allows you to access TibiaData API from your Laravel application.",
+    "keywords": [
+        "igorsgm",
+        "tibia-data-api"
+    ],
+    "homepage": "https://github.com/igorsgm/tibia-data-api",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Igor Moraes",
+            "email": "igor.sgm@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Igorsgm\\TibiaDataApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Igorsgm\\TibiaDataApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Igorsgm\\TibiaDataApi\\TibiaDataApiServiceProvider"
+            ],
+            "aliases": {
+                "TibiaDataApi": "Igorsgm\\TibiaDataApi\\TibiaDataApiFacade"
+            }
+        }
+    }
+}

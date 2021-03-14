@@ -14,6 +14,7 @@ class CharactersResource extends AbstractResource
      * @return CharacterResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function get(string $name): CharacterResponse
     {

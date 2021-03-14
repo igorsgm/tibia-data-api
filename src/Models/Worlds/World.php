@@ -33,7 +33,7 @@ class World implements JsonSerializable
     /**
      * @var string
      */
-    private $additional = '';
+    private $additional;
 
     /**
      * World constructor.

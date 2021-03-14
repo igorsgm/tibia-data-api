@@ -15,6 +15,7 @@ class NewsResource extends AbstractResource
      * @return NewsResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function get($id)
     {
@@ -26,6 +27,7 @@ class NewsResource extends AbstractResource
     /**
      * @return NewslistResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function getLatestNews()
     {
@@ -37,6 +39,7 @@ class NewsResource extends AbstractResource
     /**
      * @return NewslistResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function getNewstickers()
     {

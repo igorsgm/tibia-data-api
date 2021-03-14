@@ -14,6 +14,7 @@ class GuildsResource extends AbstractResource
      * @return GuildsResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function get(string $server): GuildsResponse
     {

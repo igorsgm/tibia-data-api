@@ -166,6 +166,7 @@ class World implements \JsonSerializable
      * Gets DateTime from battleye status string.
      *
      * @return \DateTime|null
+     * @throws \Exception
      */
     public function getBattleyedAt(): ?\DateTime
     {

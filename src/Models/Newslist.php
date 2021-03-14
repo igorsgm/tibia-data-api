@@ -17,7 +17,7 @@ class Newslist implements \JsonSerializable
     /**
      * @var array
      */
-    private $news = [];
+    private $news;
 
     /**
      * Newslist constructor.

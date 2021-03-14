@@ -25,6 +25,7 @@ class CharacterResponse extends AbstractResponse
      * @param  \stdClass  $response
      * @throws NotFoundException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws \Exception
      */
     public function __construct(\stdClass $response)
     {

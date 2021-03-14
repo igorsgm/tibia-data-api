@@ -5,7 +5,7 @@ namespace Igorsgm\TibiaDataApi;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Igorsgm\TibiaDataApi\Skeleton\SkeletonClass
+ * @see \Igorsgm\TibiaDataApi\TibiaDataApi
  */
 class TibiaDataApiFacade extends Facade
 {

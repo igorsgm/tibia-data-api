@@ -26,6 +26,7 @@ class GuildResponse extends AbstractResponse
      * @param  \stdClass  $response
      * @throws NotFoundException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws \Exception
      */
     public function __construct(\stdClass $response)
     {
@@ -40,8 +41,8 @@ class GuildResponse extends AbstractResponse
         $invited = new Invited($invitees);
 
         $members = [];
+        $characters = [];
         foreach ($response->guild->members as $members_data) {
-            $characters = [];
             foreach ($members_data->characters as $character) {
                 $characters[] = new Character(
                     $character->name,
@@ -53,7 +54,7 @@ class GuildResponse extends AbstractResponse
                 );
             }
 
-            $members[] = new Members($members_data->rank_title, $members);
+            $members[] = new Members($members_data->rank_title, $characters);
         }
 
         $this->guild = Guild::createFromArray([

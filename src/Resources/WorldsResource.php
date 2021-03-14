@@ -15,6 +15,7 @@ class WorldsResource extends AbstractResource
      * @return WorldResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function get(string $name): WorldResponse
     {
@@ -26,6 +27,7 @@ class WorldsResource extends AbstractResource
     /**
      * @return WorldsResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function getList(): WorldsResponse
     {

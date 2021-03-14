@@ -36,6 +36,7 @@ class HighscoresResource extends AbstractResource
      * @return HighscoresResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function get($server, string $type = self::TYPE_EXPERIENCE, string $vocation = self::VOC_ALL)
     {

@@ -149,7 +149,8 @@ class Character implements \JsonSerializable
     }
 
     /**
-     * @return bool Returns true when characters has a premium account.
+     * Returns true when characters has a premium account.
+     * @return bool
      */
     public function isPremium()
     {

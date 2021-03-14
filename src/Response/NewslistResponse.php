@@ -21,6 +21,7 @@ class NewslistResponse extends AbstractResponse
      * NewslistResponse constructor.
      * @param  \stdClass  $response
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws \Exception
      */
     public function __construct(\stdClass $response)
     {

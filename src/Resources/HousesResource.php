@@ -20,6 +20,7 @@ class HousesResource extends AbstractResource
      * @return HousesResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException
+     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
     public function get($world, $town = 'Ab\'Dendriel', $type = self::TYPE_HOUSES)
     {

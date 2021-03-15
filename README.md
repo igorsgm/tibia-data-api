@@ -6,10 +6,20 @@
 An open source library that allows you to access <a href="https://tibiadata.com/" target="_blank">TibiaData API</a> from your Laravel app.
 </p>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/igorsgm/tibia-data-api.svg?style=flat-square)](https://packagist.org/packages/igorsgm/tibia-data-api)
-[![Build Status](https://img.shields.io/travis/igorsgm/tibia-data-api/master.svg?style=flat-square)](https://travis-ci.org/igorsgm/tibia-data-api)
-[![Quality Score](https://img.shields.io/scrutinizer/g/igorsgm/tibia-data-api.svg?style=flat-square)](https://scrutinizer-ci.com/g/igorsgm/tibia-data-api)
-[![Total Downloads](https://img.shields.io/packagist/dt/igorsgm/tibia-data-api.svg?style=flat-square)](https://packagist.org/packages/igorsgm/tibia-data-api)
+<p align="center">
+    <a href="https://packagist.org/packages/igorsgm/tibia-data-api">
+        <img src="https://img.shields.io/packagist/v/igorsgm/tibia-data-api.svg?style=flat-square" alt="Latest Version on Packagist">
+    </a>
+    <a href="https://travis-ci.org/igorsgm/tibia-data-api">
+        <img src="https://img.shields.io/scrutinizer/build/g/igorsgm/tibia-data-api/master?style=flat-square" alt="Build Status">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/igorsgm/tibia-data-api">
+        <img src="https://img.shields.io/scrutinizer/g/igorsgm/tibia-data-api.svg?style=flat-square" alt="Quality Score">
+    </a>
+    <a href="https://packagist.org/packages/igorsgm/tibia-data-api">
+        <img src="https://img.shields.io/packagist/dt/igorsgm/tibia-data-api.svg?style=flat-square" alt="Total Downloads">
+    </a>
+</p>
 
 <a href="https://tibiadata.com/" target="_blank">TibiaData API</a> is a RESTful API providing information in JSON format containing information from Tibia’s official homepage tibia.com, so you can build your own small tools.
 
@@ -60,7 +70,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 - Tibia and TibiaME are trademarks of CipSoft GmbH. The official website for Tibia is [Tibia.com](https://tibia.com)
 - [TibiaData API](https://tibiadata.com/)
 - [Simivar](https://github.com/simivar)
-- [Igor Moraes](https://github.com/igorsgm)
+- [Igor Moraes](https://igormoraes.com)
 
 ## License
 

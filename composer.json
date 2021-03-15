@@ -3,7 +3,11 @@
     "description": "A library that allows you to access TibiaData API from your Laravel application.",
     "keywords": [
         "igorsgm",
-        "tibia-data-api"
+        "tibia",
+        "api",
+        "data",
+        "tibiadata",
+        "tibia-data"
     ],
     "homepage": "https://github.com/igorsgm/tibia-data-api",
     "license": "MIT",

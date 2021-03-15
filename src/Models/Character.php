@@ -23,7 +23,7 @@ class Character implements \JsonSerializable
     /**
      * @var array
      */
-    private $former_names = array();
+    private $formerNames = array();
 
     /**
      * @var
@@ -43,7 +43,7 @@ class Character implements \JsonSerializable
     /**
      * @var
      */
-    private $achievement_points;
+    private $achievementPoints;
 
     /**
      * @var
@@ -53,7 +53,7 @@ class Character implements \JsonSerializable
     /**
      * @var
      */
-    private $former_world;
+    private $formerWorld;
 
     /**
      * @var
@@ -68,7 +68,7 @@ class Character implements \JsonSerializable
     /**
      * @var
      */
-    private $last_login;
+    private $lastLogin;
 
     /**
      * @var string
@@ -78,7 +78,7 @@ class Character implements \JsonSerializable
     /**
      * @var
      */
-    private $account_status;
+    private $accountStatus;
 
     /**
      * @var
@@ -98,12 +98,12 @@ class Character implements \JsonSerializable
     /**
      * @var
      */
-    private $account_information;
+    private $accountInformation;
 
     /**
      * @var array
      */
-    private $other_characters = array();
+    private $otherCharacters = array();
 
     /**
      * Character constructor.
@@ -130,21 +130,21 @@ class Character implements \JsonSerializable
     {
         $character = new Character($response['name'], $response['vocation'], $response['level']);
 
-        $character->former_names = $response['former_names'];
+        $character->formerNames = $response['former_names'];
         $character->sex = $response['sex'];
-        $character->achievement_points = $response['achievement_points'];
+        $character->achievementPoints = $response['achievement_points'];
         $character->world = $response['world'];
-        $character->former_world = $response['former_world'];
+        $character->formerWorld = $response['former_world'];
         $character->residence = $response['residence'];
         $character->guild = $response['guild'];
-        $character->last_login = $response['last_login'];
+        $character->lastLogin = $response['last_login'];
         $character->comment = $response['comment'];
-        $character->account_status = $response['account_status'];
+        $character->accountStatus = $response['account_status'];
         $character->status = $response['status'];
         $character->achievements = $response['achievements'];
-        $character->account_information = $response['account_information'];
+        $character->accountInformation = $response['account_information'];
         $character->deaths = $response['deaths'];
-        $character->other_characters = $response['other_characters'];
+        $character->otherCharacters = $response['other_characters'];
 
         return $character;
     }
@@ -155,7 +155,7 @@ class Character implements \JsonSerializable
      */
     public function isPremium()
     {
-        return $this->account_status === 'Premium Account';
+        return $this->accountStatus === 'Premium Account';
     }
 
     /**
@@ -179,7 +179,7 @@ class Character implements \JsonSerializable
      */
     public function getFormerNames(): array
     {
-        return $this->former_names;
+        return $this->formerNames;
     }
 
     /**
@@ -211,7 +211,7 @@ class Character implements \JsonSerializable
      */
     public function getAchievementPoints(): int
     {
-        return $this->achievement_points;
+        return $this->achievementPoints;
     }
 
     /**
@@ -227,7 +227,7 @@ class Character implements \JsonSerializable
      */
     public function getFormerWorld(): ?string
     {
-        return $this->former_world;
+        return $this->formerWorld;
     }
 
     /**
@@ -251,7 +251,7 @@ class Character implements \JsonSerializable
      */
     public function getLastLogin(): ?Carbon
     {
-        return $this->last_login;
+        return $this->lastLogin;
     }
 
     /**
@@ -267,7 +267,7 @@ class Character implements \JsonSerializable
      */
     public function getAccountStatus(): string
     {
-        return $this->account_status;
+        return $this->accountStatus;
     }
 
     /**
@@ -299,7 +299,7 @@ class Character implements \JsonSerializable
      */
     public function getAccountInformation(): AccountInformation
     {
-        return $this->account_information;
+        return $this->accountInformation;
     }
 
     /**
@@ -307,6 +307,6 @@ class Character implements \JsonSerializable
      */
     public function getOtherCharacters(): array
     {
-        return $this->other_characters;
+        return $this->otherCharacters;
     }
 }

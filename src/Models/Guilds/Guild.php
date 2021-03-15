@@ -23,29 +23,29 @@ class Guild implements JsonSerializable
     /**
      * @var string
      */
-    private $logo_url;
+    private $logoUrl;
 
     /**
      * @var bool
      */
-    private $is_active;
+    private $isActive;
 
     /**
      * Guild constructor.
      * @param  string  $name
      * @param  string  $description
-     * @param  string  $logo_url
-     * @param  bool  $is_active
+     * @param  string  $logoUrl
+     * @param  bool  $isActive
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(string $name, string $description, string $logo_url, bool $is_active)
+    public function __construct(string $name, string $description, string $logoUrl, bool $isActive)
     {
         $this->handleImmutableConstructor();
 
         $this->name = $name;
         $this->description = $description;
-        $this->logo_url = $logo_url;
-        $this->is_active = $is_active;
+        $this->logoUrl = $logoUrl;
+        $this->isActive = $isActive;
     }
 
     /**
@@ -69,7 +69,7 @@ class Guild implements JsonSerializable
      */
     public function getLogoUrl(): string
     {
-        return $this->logo_url;
+        return $this->logoUrl;
     }
 
     /**
@@ -77,6 +77,6 @@ class Guild implements JsonSerializable
      */
     public function isActive(): bool
     {
-        return $this->is_active;
+        return $this->isActive;
     }
 }

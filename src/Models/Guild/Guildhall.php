@@ -35,7 +35,7 @@ class Guildhall implements JsonSerializable
     /**
      * @var int
      */
-    private $houseid;
+    private $houseId;
 
     /**
      * Guildhall constructor.
@@ -44,10 +44,10 @@ class Guildhall implements JsonSerializable
      * @param  string  $town
      * @param  Carbon  $paid
      * @param  string  $world
-     * @param  int  $houseid
+     * @param  int  $houseId
      * @throws ImmutableException
      */
-    public function __construct(string $name, string $town, Carbon $paid, string $world, int $houseid)
+    public function __construct(string $name, string $town, Carbon $paid, string $world, int $houseId)
     {
         $this->handleImmutableConstructor();
 
@@ -55,7 +55,7 @@ class Guildhall implements JsonSerializable
         $this->town = $town;
         $this->paid = $paid;
         $this->world = $world;
-        $this->houseid = $houseid;
+        $this->houseId = $houseId;
     }
 
     /**
@@ -93,8 +93,8 @@ class Guildhall implements JsonSerializable
     /**
      * @return int
      */
-    public function getHouseid(): int
+    public function getHouseId(): int
     {
-        return $this->houseid;
+        return $this->houseId;
     }
 }

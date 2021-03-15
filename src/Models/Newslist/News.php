@@ -29,12 +29,12 @@ class News implements JsonSerializable
     /**
      * @var string
      */
-    private $apiurl;
+    private $apiUrl;
 
     /**
      * @var string
      */
-    private $tibiaurl;
+    private $tibiaUrl;
 
     /**
      * @var Carbon
@@ -46,20 +46,20 @@ class News implements JsonSerializable
      * @param  int  $id
      * @param  string  $type
      * @param  string  $news
-     * @param  string  $apiurl
-     * @param  string  $tibiaurl
+     * @param  string  $apiUrl
+     * @param  string  $tibiaUrl
      * @param  Carbon  $date
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(int $id, string $type, string $news, string $apiurl, string $tibiaurl, Carbon $date)
+    public function __construct(int $id, string $type, string $news, string $apiUrl, string $tibiaUrl, Carbon $date)
     {
         $this->handleImmutableConstructor();
 
         $this->id = $id;
         $this->type = $type;
         $this->news = $news;
-        $this->apiurl = $apiurl;
-        $this->tibiaurl = $tibiaurl;
+        $this->apiUrl = $apiUrl;
+        $this->tibiaUrl = $tibiaUrl;
         $this->date = $date;
     }
 
@@ -90,17 +90,17 @@ class News implements JsonSerializable
     /**
      * @return string
      */
-    public function getApiurl(): string
+    public function getApiUrl(): string
     {
-        return $this->apiurl;
+        return $this->apiUrl;
     }
 
     /**
      * @return string
      */
-    public function getTibiaurl(): string
+    public function getTibiaUrl(): string
     {
-        return $this->tibiaurl;
+        return $this->tibiaUrl;
     }
 
     /**

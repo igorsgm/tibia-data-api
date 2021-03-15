@@ -25,12 +25,12 @@ class World implements \JsonSerializable
     /**
      * @var
      */
-    private $online_record;
+    private $onlineRecord;
 
     /**
      * @var
      */
-    private $creation_date;
+    private $creationDate;
 
     /**
      * @var
@@ -40,22 +40,22 @@ class World implements \JsonSerializable
     /**
      * @var
      */
-    private $pvp_type;
+    private $pvpType;
 
     /**
      * @var
      */
-    private $world_quest_titles;
+    private $worldQuestTitles;
 
     /**
      * @var
      */
-    private $battleye_status;
+    private $battleyeStatus;
 
     /**
      * @var
      */
-    private $players_online;
+    private $playersOnline;
 
     /**
      * World constructor.
@@ -80,13 +80,13 @@ class World implements \JsonSerializable
     {
         $world = new self($array['name'], $array['online']);
 
-        $world->creation_date = $array['creation_date'];
+        $world->creationDate = $array['creation_date'];
         $world->location = $array['location'];
-        $world->pvp_type = $array['pvp_type'];
-        $world->battleye_status = $array['battleye_status'];
-        $world->online_record = $array['online_record'];
-        $world->players_online = $array['players_online'];
-        $world->world_quest_titles = $array['world_quest_titles'];
+        $world->pvpType = $array['pvp_type'];
+        $world->battleyeStatus = $array['battleye_status'];
+        $world->onlineRecord = $array['online_record'];
+        $world->playersOnline = $array['players_online'];
+        $world->worldQuestTitles = $array['world_quest_titles'];
 
         return $world;
     }
@@ -112,7 +112,7 @@ class World implements \JsonSerializable
      */
     public function getOnlineRecord(): OnlineRecord
     {
-        return $this->online_record;
+        return $this->onlineRecord;
     }
 
     /**
@@ -120,7 +120,7 @@ class World implements \JsonSerializable
      */
     public function getCreationDate(): string
     {
-        return $this->creation_date;
+        return $this->creationDate;
     }
 
     /**
@@ -136,7 +136,7 @@ class World implements \JsonSerializable
      */
     public function getPvpType(): string
     {
-        return $this->pvp_type;
+        return $this->pvpType;
     }
 
     /**
@@ -144,7 +144,7 @@ class World implements \JsonSerializable
      */
     public function getWorldQuestTitles(): array
     {
-        return $this->world_quest_titles;
+        return $this->worldQuestTitles;
     }
 
     /**
@@ -152,7 +152,7 @@ class World implements \JsonSerializable
      */
     public function getBattleyeStatus(): string
     {
-        return $this->battleye_status;
+        return $this->battleyeStatus;
     }
 
     /**
@@ -160,7 +160,7 @@ class World implements \JsonSerializable
      */
     public function getPlayersOnline(): array
     {
-        return $this->players_online;
+        return $this->playersOnline;
     }
 
     /**
@@ -171,15 +171,15 @@ class World implements \JsonSerializable
      */
     public function getBattlEyedAt(): ?Carbon
     {
-        if ($this->battleye_status === 'Not protected by BattlEye.') {
+        if ($this->battleyeStatus === 'Not protected by BattlEye.') {
             return null;
         }
 
-        if ($this->battleye_status === 'Protected by BattlEye since its release.') {
-            return new Carbon($this->creation_date.'-01');
+        if ($this->battleyeStatus === 'Protected by BattlEye since its release.') {
+            return new Carbon($this->creationDate.'-01');
         }
 
-        preg_match('/Protected by BattlEye since ([a-zA-Z0-9, ]+)\./', $this->battleye_status, $matches);
+        preg_match('/Protected by BattlEye since ([a-zA-Z0-9, ]+)\./', $this->battleyeStatus, $matches);
         return Carbon::createFromFormat('F d, Y', $matches[1]);
     }
 }

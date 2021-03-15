@@ -13,17 +13,17 @@ class Information implements \JsonSerializable
     /**
      * @var int
      */
-    private $api_version;
+    private $apiVersion;
 
     /**
      * @var float
      */
-    private $execution_time;
+    private $executionTime;
 
     /**
      * @var Carbon
      */
-    private $last_updated;
+    private $lastUpdated;
 
     /**
      * @var Carbon
@@ -32,19 +32,19 @@ class Information implements \JsonSerializable
 
     /**
      * Information constructor.
-     * @param  int  $api_version
-     * @param  float  $execution_time
-     * @param  Carbon  $last_update
+     * @param  int  $apiVersion
+     * @param  float  $executionTime
+     * @param  Carbon  $lastUpdate
      * @param  Carbon  $timestamp
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(int $api_version, float $execution_time, Carbon $last_update, Carbon $timestamp)
+    public function __construct(int $apiVersion, float $executionTime, Carbon $lastUpdate, Carbon $timestamp)
     {
         $this->handleImmutableConstructor();
 
-        $this->api_version = $api_version;
-        $this->execution_time = $execution_time;
-        $this->last_updated = $last_update;
+        $this->apiVersion = $apiVersion;
+        $this->executionTime = $executionTime;
+        $this->lastUpdated = $lastUpdate;
         $this->timestamp = $timestamp;
     }
 
@@ -53,7 +53,7 @@ class Information implements \JsonSerializable
      */
     public function getApiVersion(): int
     {
-        return $this->api_version;
+        return $this->apiVersion;
     }
 
     /**
@@ -61,7 +61,7 @@ class Information implements \JsonSerializable
      */
     public function getExecutionTime(): float
     {
-        return $this->execution_time;
+        return $this->executionTime;
     }
 
     /**
@@ -69,7 +69,7 @@ class Information implements \JsonSerializable
      */
     public function getLastUpdated(): Carbon
     {
-        return $this->last_updated;
+        return $this->lastUpdated;
     }
 
     /**

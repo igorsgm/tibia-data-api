@@ -14,7 +14,7 @@ class Members implements JsonSerializable
     /**
      * @var string
      */
-    private $rank_title;
+    private $rankTitle;
 
     /**
      * @var Character[]
@@ -23,15 +23,15 @@ class Members implements JsonSerializable
 
     /**
      * Members constructor.
-     * @param  string  $rank_title
+     * @param  string  $rankTitle
      * @param  array  $characters
      * @throws ImmutableException
      */
-    public function __construct(string $rank_title, array $characters)
+    public function __construct(string $rankTitle, array $characters)
     {
         $this->handleImmutableConstructor();
 
-        $this->rank_title = $rank_title;
+        $this->rankTitle = $rankTitle;
         $this->characters = $characters;
     }
 
@@ -40,7 +40,7 @@ class Members implements JsonSerializable
      */
     public function getRankTitle(): string
     {
-        return $this->rank_title;
+        return $this->rankTitle;
     }
 
     /**

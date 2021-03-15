@@ -42,12 +42,12 @@ class Guild implements JsonSerializable
     /**
      * @var
      */
-    private $online_status;
+    private $onlineStatus;
 
     /**
      * @var
      */
-    private $offline_status;
+    private $offlineStatus;
 
     /**
      * @var
@@ -57,12 +57,12 @@ class Guild implements JsonSerializable
     /**
      * @var
      */
-    private $totalmembers;
+    private $totalMembers;
 
     /**
      * @var
      */
-    private $totalinvited;
+    private $totalInvited;
 
     /**
      * @var string
@@ -87,7 +87,7 @@ class Guild implements JsonSerializable
     /**
      * @var
      */
-    private $guildlogo;
+    private $guildLogo;
 
     /**
      * @var
@@ -127,15 +127,15 @@ class Guild implements JsonSerializable
         $guild->guildhall = $array['guildhall'];
         $guild->application = $array['application'];
         $guild->war = $array['war'];
-        $guild->online_status = $array['online_status'];
-        $guild->offline_status = $array['offline_status'];
+        $guild->onlineStatus = $array['online_status'];
+        $guild->offlineStatus = $array['offline_status'];
         $guild->disbanded = $array['disbanded'];
-        $guild->totalmembers = $array['totalmembers'];
-        $guild->totalinvited = $array['totalinvited'];
+        $guild->totalMembers = $array['totalmembers'];
+        $guild->totalInvited = $array['totalinvited'];
         $guild->founded = $array['founded'];
         $guild->active = $array['active'];
         $guild->homepage = $array['homepage'];
-        $guild->guildlogo = $array['guildlogo'];
+        $guild->guildLogo = $array['guildlogo'];
         $guild->members = $array['members'];
         $guild->invited = $array['invited'];
 
@@ -187,7 +187,7 @@ class Guild implements JsonSerializable
      */
     public function getOnlineStatus(): int
     {
-        return $this->online_status;
+        return $this->onlineStatus;
     }
 
     /**
@@ -195,7 +195,7 @@ class Guild implements JsonSerializable
      */
     public function getOfflineStatus(): int
     {
-        return $this->offline_status;
+        return $this->offlineStatus;
     }
 
     /**
@@ -209,17 +209,17 @@ class Guild implements JsonSerializable
     /**
      * @return int
      */
-    public function getTotalmembers(): int
+    public function getTotalMembers(): int
     {
-        return $this->totalmembers;
+        return $this->totalMembers;
     }
 
     /**
      * @return int
      */
-    public function getTotalinvited(): int
+    public function getTotalInvited(): int
     {
-        return $this->totalinvited;
+        return $this->totalInvited;
     }
 
     /**
@@ -257,9 +257,9 @@ class Guild implements JsonSerializable
     /**
      * @return string
      */
-    public function getGuildlogo(): string
+    public function getGuildLogo(): string
     {
-        return $this->guildlogo;
+        return $this->guildLogo;
     }
 
     /**

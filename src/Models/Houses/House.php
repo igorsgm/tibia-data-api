@@ -13,7 +13,7 @@ class House implements JsonSerializable
     /**
      * @var int
      */
-    private $houseid;
+    private $houseId;
 
     /**
      * @var string
@@ -48,7 +48,7 @@ class House implements JsonSerializable
     {
         $this->handleImmutableConstructor();
 
-        $this->houseid = $id;
+        $this->houseId = $id;
         $this->name = $name;
         $this->size = $size;
         $this->rent = $rent;
@@ -58,9 +58,9 @@ class House implements JsonSerializable
     /**
      * @return int
      */
-    public function getHouseid(): int
+    public function getHouseId(): int
     {
-        return $this->houseid;
+        return $this->houseId;
     }
 
     /**

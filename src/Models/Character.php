@@ -47,27 +47,27 @@ class Character implements \JsonSerializable
     private $achievementPoints;
 
     /**
-     * @var
+     * @var string
      */
     private $world;
 
     /**
-     * @var
+     * @var string
      */
     private $formerWorld;
 
     /**
-     * @var
+     * @var string
      */
     private $residence;
 
     /**
-     * @var
+     * @var Guild
      */
     private $guild;
 
     /**
-     * @var
+     * @var Carbon
      */
     private $lastLogin;
 
@@ -97,7 +97,7 @@ class Character implements \JsonSerializable
     private $deaths;
 
     /**
-     * @var
+     * @var AccountInformation
      */
     private $accountInformation;
 

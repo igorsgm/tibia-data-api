@@ -25,42 +25,42 @@ class Guild implements JsonSerializable
     private $description;
 
     /**
-     * @var
+     * @var Guildhall
      */
     private $guildhall;
 
     /**
-     * @var
+     * @var boolean
      */
     private $application;
 
     /**
-     * @var
+     * @var boolean
      */
     private $war;
 
     /**
-     * @var
+     * @var integer
      */
     private $onlineStatus;
 
     /**
-     * @var
+     * @var integer
      */
     private $offlineStatus;
 
     /**
-     * @var
+     * @var boolean
      */
     private $disbanded;
 
     /**
-     * @var
+     * @var integer
      */
     private $totalMembers;
 
     /**
-     * @var
+     * @var integer
      */
     private $totalInvited;
 
@@ -70,32 +70,32 @@ class Guild implements JsonSerializable
     private $world;
 
     /**
-     * @var
+     * @var Carbon
      */
     private $founded;
 
     /**
-     * @var
+     * @var boolean
      */
     private $active;
 
     /**
-     * @var
+     * @var string
      */
     private $homepage;
 
     /**
-     * @var
+     * @var string
      */
     private $guildLogo;
 
     /**
-     * @var
+     * @var Members[]
      */
     private $members;
 
     /**
-     * @var
+     * @var Invited
      */
     private $invited;
 

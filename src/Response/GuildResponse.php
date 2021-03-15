@@ -35,27 +35,27 @@ class GuildResponse extends AbstractResponse
             throw new NotFoundException('Guild does not exists.');
         }
 
-        $invitees = [];
+        $invitees = collect();
         foreach ($response->guild->invited as $invitee) {
-            $invitees = new Invitee($invitee->name, new Carbon($invitee->invited));
+            $invitees->push(new Invitee($invitee->name, new Carbon($invitee->invited)));
         }
         $invited = new Invited($invitees);
 
-        $members = [];
-        $characters = [];
+        $members = collect();
+        $characters = collect();
         foreach ($response->guild->members as $members_data) {
             foreach ($members_data->characters as $character) {
-                $characters[] = new Character(
+                $characters->push(new Character(
                     $character->name,
                     $character->nick,
                     $character->level,
                     $character->vocation,
                     new Carbon($character->joined),
                     $character->status
-                );
+                ));
             }
 
-            $members[] = new Members($members_data->rank_title, $characters);
+            $members->push(new Members($members_data->rank_title, $characters));
         }
 
         $this->guild = Guild::createFromArray([

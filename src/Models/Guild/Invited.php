@@ -6,6 +6,7 @@ namespace Igorsgm\TibiaDataApi\Models\Guild;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 use JsonSerializable;
 
 class Invited implements JsonSerializable
@@ -22,7 +23,7 @@ class Invited implements JsonSerializable
      * @param  array  $invitee
      * @throws ImmutableException
      */
-    public function __construct(array $invitee)
+    public function __construct(Collection $invitee)
     {
         $this->handleImmutableConstructor();
 

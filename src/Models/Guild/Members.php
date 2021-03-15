@@ -5,6 +5,7 @@ namespace Igorsgm\TibiaDataApi\Models\Guild;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 use JsonSerializable;
 
 class Members implements JsonSerializable
@@ -27,7 +28,7 @@ class Members implements JsonSerializable
      * @param  array  $characters
      * @throws ImmutableException
      */
-    public function __construct(string $rankTitle, array $characters)
+    public function __construct(string $rankTitle, Collection $characters)
     {
         $this->handleImmutableConstructor();
 
@@ -46,7 +47,7 @@ class Members implements JsonSerializable
     /**
      * @return Character[]
      */
-    public function getCharacters(): array
+    public function getCharacters(): Collection
     {
         return $this->characters;
     }

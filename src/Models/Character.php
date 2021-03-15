@@ -10,6 +10,7 @@ use Igorsgm\TibiaDataApi\Models\Character\Guild;
 use Igorsgm\TibiaDataApi\Models\Character\OtherCharacter;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
 class Character implements \JsonSerializable
 {
@@ -21,12 +22,12 @@ class Character implements \JsonSerializable
     private $name;
 
     /**
-     * @var array
+     * @var Collection
      */
-    private $formerNames = array();
+    private $formerNames;
 
     /**
-     * @var
+     * @var string
      */
     private $sex;
 
@@ -41,7 +42,7 @@ class Character implements \JsonSerializable
     private $level;
 
     /**
-     * @var
+     * @var string
      */
     private $achievementPoints;
 
@@ -76,24 +77,24 @@ class Character implements \JsonSerializable
     private $comment = '';
 
     /**
-     * @var
+     * @var string
      */
     private $accountStatus;
 
     /**
-     * @var
+     * @var string
      */
     private $status;
 
     /**
-     * @var array
+     * @var Collection
      */
-    private $achievements = array();
+    private $achievements;
 
     /**
-     * @var array
+     * @var Collection
      */
-    private $deaths = array();
+    private $deaths;
 
     /**
      * @var
@@ -101,9 +102,9 @@ class Character implements \JsonSerializable
     private $accountInformation;
 
     /**
-     * @var array
+     * @var Collection
      */
-    private $otherCharacters = array();
+    private $otherCharacters;
 
     /**
      * Character constructor.
@@ -177,7 +178,7 @@ class Character implements \JsonSerializable
     /**
      * @return array
      */
-    public function getFormerNames(): array
+    public function getFormerNames(): Collection
     {
         return $this->formerNames;
     }
@@ -281,7 +282,7 @@ class Character implements \JsonSerializable
     /**
      * @return Achievement[]
      */
-    public function getAchievements(): array
+    public function getAchievements(): Collection
     {
         return $this->achievements;
     }
@@ -289,7 +290,7 @@ class Character implements \JsonSerializable
     /**
      * @return Death[]
      */
-    public function getDeaths(): array
+    public function getDeaths(): Collection
     {
         return $this->deaths;
     }
@@ -305,7 +306,7 @@ class Character implements \JsonSerializable
     /**
      * @return OtherCharacter[]
      */
-    public function getOtherCharacters(): array
+    public function getOtherCharacters(): Collection
     {
         return $this->otherCharacters;
     }

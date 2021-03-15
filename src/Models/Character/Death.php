@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 use JsonSerializable;
 
 class Death implements JsonSerializable
@@ -28,7 +29,7 @@ class Death implements JsonSerializable
     private $reason;
 
     /**
-     * @var array
+     * @var Collection
      */
     private $involved;
 
@@ -40,7 +41,7 @@ class Death implements JsonSerializable
      * @param  array  $involved
      * @throws ImmutableException
      */
-    public function __construct(Carbon $date, int $level, string $reason, array $involved)
+    public function __construct(Carbon $date, int $level, string $reason, Collection $involved)
     {
         $this->handleImmutableConstructor();
 
@@ -77,7 +78,7 @@ class Death implements JsonSerializable
     /**
      * @return array
      */
-    public function getInvolved(): array
+    public function getInvolved(): Collection
     {
         return $this->involved;
     }

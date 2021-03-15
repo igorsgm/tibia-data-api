@@ -34,14 +34,14 @@ class CharacterResponse extends AbstractResponse
             throw new NotFoundException('Character does not exists.');
         }
 
-        $achievements = [];
+        $achievements = collect();
         foreach ($response->characters->achievements as $achievement) {
-            $achievements[] = new Achievement($achievement->name, $achievement->stars);
+            $achievements->push(new Achievement($achievement->name, $achievement->stars));
         }
 
-        $account_information = null;
+        $accountInformation = null;
         if (!empty($response->characters->account_information)) {
-            $account_information = new AccountInformation(
+            $accountInformation = new AccountInformation(
                 $response->characters->account_information->loyalty_title,
                 new Carbon(
                     $response->characters->account_information->created->date,
@@ -50,31 +50,31 @@ class CharacterResponse extends AbstractResponse
             );
         }
 
-        $deaths = [];
+        $deaths = collect();
         if (!empty($response->characters->deaths)) {
             foreach ($response->characters->deaths as $death) {
-                $involved = array();
+                $involved = collect();
                 foreach ($death->involved as $deathInvolved) {
-                    $involved[] = $deathInvolved->name;
+                    $involved->push($deathInvolved->name);
                 }
 
-                $deaths[] = new Death(
+                $deaths->push(new Death(
                     new Carbon($death->date->date, $death->date->timezone),
                     $death->level,
                     $death->reason,
                     $involved
-                );
+                ));
             }
         }
 
-        $other_characters = [];
+        $otherCharacters = collect();
         if (!empty($response->characters->account_information)) {
             foreach ($response->characters->other_characters as $other_character) {
-                $other_characters[] = new OtherCharacter(
+                $otherCharacters->push(new OtherCharacter(
                     $other_character->name,
                     $other_character->world,
                     $other_character->status
-                );
+                ));
             }
         }
 
@@ -93,7 +93,9 @@ class CharacterResponse extends AbstractResponse
 
         $this->character = Character::createFromArray([
             'name' => $response->characters->data->name,
-            'former_names' => $response->characters->data->former_names ?? array(),
+            'former_names' => !empty($response->characters->data->former_names)
+                ? collect($response->characters->data->former_names)
+                : collect(),
             'sex' => $response->characters->data->sex,
             'vocation' => $response->characters->data->vocation,
             'level' => $response->characters->data->level,
@@ -107,9 +109,9 @@ class CharacterResponse extends AbstractResponse
             'account_status' => $response->characters->data->account_status,
             'status' => $response->characters->data->status,
             'achievements' => $achievements,
-            'account_information' => $account_information,
+            'account_information' => $accountInformation,
             'deaths' => $deaths,
-            'other_characters' => $other_characters,
+            'other_characters' => $otherCharacters,
         ]);
 
         parent::__construct($response);

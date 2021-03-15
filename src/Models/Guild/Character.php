@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Guild;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
@@ -33,7 +33,7 @@ class Character implements JsonSerializable
     private $vocation;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $joined;
 
@@ -49,7 +49,7 @@ class Character implements JsonSerializable
      * @param  string  $nick
      * @param  int  $level
      * @param  string  $vocation
-     * @param  DateTime  $joined
+     * @param  Carbon  $joined
      * @param  string  $status
      * @throws ImmutableException
      */
@@ -58,7 +58,7 @@ class Character implements JsonSerializable
         string $nick,
         int $level,
         string $vocation,
-        DateTime $joined,
+        Carbon $joined,
         string $status
     ) {
         $this->handleImmutableConstructor();
@@ -104,9 +104,9 @@ class Character implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getJoined(): DateTime
+    public function getJoined(): Carbon
     {
         return $this->joined;
     }

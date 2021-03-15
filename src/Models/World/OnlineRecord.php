@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\World;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 use JsonSerializable;
@@ -17,17 +17,17 @@ class OnlineRecord implements JsonSerializable
     private $number;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $date;
 
     /**
      * OnlineRecord constructor.
      * @param  int  $number
-     * @param  DateTime  $date
+     * @param  Carbon  $date
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(int $number, DateTime $date)
+    public function __construct(int $number, Carbon $date)
     {
         $this->handleImmutableConstructor();
 
@@ -44,9 +44,9 @@ class OnlineRecord implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getDate(): DateTime
+    public function getDate(): Carbon
     {
         return $this->date;
     }

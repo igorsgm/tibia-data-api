@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Response;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\NotFoundException;
 use Igorsgm\TibiaDataApi\Models\News;
 
@@ -34,7 +35,7 @@ class NewsResponse extends AbstractResponse
             $response->news->id,
             $response->news->title,
             $response->news->content,
-            new \DateTime($response->news->date->date, new \DateTimeZone($response->news->date->timezone))
+            new Carbon($response->news->date->date, $response->news->date->timezone)
         );
 
         parent::__construct($response);

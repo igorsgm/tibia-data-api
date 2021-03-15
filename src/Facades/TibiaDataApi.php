@@ -1,13 +1,13 @@
 <?php
 
-namespace Igorsgm\TibiaDataApi;
+namespace Igorsgm\TibiaDataApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Igorsgm\TibiaDataApi\TibiaDataApi
  */
-class TibiaDataApiFacade extends Facade
+class TibiaDataApi extends Facade
 {
     /**
      * Get the registered name of the component.

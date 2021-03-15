@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Response;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\NotFoundException;
 use Igorsgm\TibiaDataApi\Models\Guild;
 use Igorsgm\TibiaDataApi\Models\Guild\Character;
@@ -36,7 +37,7 @@ class GuildResponse extends AbstractResponse
 
         $invitees = [];
         foreach ($response->guild->invited as $invitee) {
-            $invitees = new Invitee($invitee->name, new \DateTime($invitee->invited));
+            $invitees = new Invitee($invitee->name, new Carbon($invitee->invited));
         }
         $invited = new Invited($invitees);
 
@@ -49,7 +50,7 @@ class GuildResponse extends AbstractResponse
                     $character->nick,
                     $character->level,
                     $character->vocation,
-                    new \DateTime($character->joined),
+                    new Carbon($character->joined),
                     $character->status
                 );
             }
@@ -63,7 +64,7 @@ class GuildResponse extends AbstractResponse
             'guildhall' => $response->guild->data->guildhall ? new Guildhall(
                 $response->guild->data->guildhall->name,
                 $response->guild->data->guildhall->town,
-                new \DateTime($response->guild->data->guildhall->paid),
+                new Carbon($response->guild->data->guildhall->paid),
                 $response->guild->data->guildhall->world,
                 $response->guild->data->guildhall->houseid
             ) : null,
@@ -75,7 +76,7 @@ class GuildResponse extends AbstractResponse
             'totalmembers' => $response->guild->data->totalmembers,
             'totalinvited' => $response->guild->data->totalinvited,
             'world' => $response->guild->data->world,
-            'founded' => new \DateTime($response->guild->data->founded),
+            'founded' => new Carbon($response->guild->data->founded),
             'active' => $response->guild->data->active ?? null,
             'homepage' => $response->guild->data->homepage ?? '',
             'guildlogo' => $response->guild->data->guildlogo,

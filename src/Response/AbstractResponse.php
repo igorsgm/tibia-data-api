@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Response;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Models\Information;
 
 /**
@@ -26,8 +27,8 @@ class AbstractResponse
         $this->information = new Information(
             $response->information->api_version,
             $response->information->execution_time,
-            new \DateTime($response->information->last_updated),
-            new \DateTime($response->information->timestamp)
+            new Carbon($response->information->last_updated),
+            new Carbon($response->information->timestamp)
         );
     }
 

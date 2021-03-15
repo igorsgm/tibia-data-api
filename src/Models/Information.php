@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 
@@ -20,12 +21,12 @@ class Information implements \JsonSerializable
     private $execution_time;
 
     /**
-     * @var \DateTime
+     * @var Carbon
      */
     private $last_updated;
 
     /**
-     * @var \DateTime
+     * @var Carbon
      */
     private $timestamp;
 
@@ -33,11 +34,11 @@ class Information implements \JsonSerializable
      * Information constructor.
      * @param  int  $api_version
      * @param  float  $execution_time
-     * @param  \DateTime  $last_update
-     * @param  \DateTime  $timestamp
+     * @param  Carbon  $last_update
+     * @param  Carbon  $timestamp
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(int $api_version, float $execution_time, \DateTime $last_update, \DateTime $timestamp)
+    public function __construct(int $api_version, float $execution_time, Carbon $last_update, Carbon $timestamp)
     {
         $this->handleImmutableConstructor();
 
@@ -64,17 +65,17 @@ class Information implements \JsonSerializable
     }
 
     /**
-     * @return \DateTime
+     * @return Carbon
      */
-    public function getLastUpdated(): \DateTime
+    public function getLastUpdated(): Carbon
     {
         return $this->last_updated;
     }
 
     /**
-     * @return \DateTime
+     * @return Carbon
      */
-    public function getTimestamp(): \DateTime
+    public function getTimestamp(): Carbon
     {
         return $this->timestamp;
     }

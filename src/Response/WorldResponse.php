@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Response;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\NotFoundException;
 use Igorsgm\TibiaDataApi\Models\World;
 use Igorsgm\TibiaDataApi\Models\World\Character;
@@ -47,9 +48,9 @@ class WorldResponse extends AbstractResponse
             'battleye_status' => $response->world->world_information->battleye_status,
             'online_record' => new OnlineRecord(
                 $response->world->world_information->online_record->players,
-                new \DateTime(
+                new Carbon(
                     $response->world->world_information->online_record->date->date,
-                    new \DateTimeZone($response->world->world_information->online_record->date->timezone)
+                    $response->world->world_information->online_record->date->timezone
                 )
             ),
             'players_online' => $players_online,

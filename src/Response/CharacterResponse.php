@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Response;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\NotFoundException;
 use Igorsgm\TibiaDataApi\Models\Character;
 use Igorsgm\TibiaDataApi\Models\Character\AccountInformation;
@@ -33,18 +34,18 @@ class CharacterResponse extends AbstractResponse
             throw new NotFoundException('Character does not exists.');
         }
 
-        $achivements = [];
+        $achievements = [];
         foreach ($response->characters->achievements as $achievement) {
-            $achivements[] = new Achievement($achievement->name, $achievement->stars);
+            $achievements[] = new Achievement($achievement->name, $achievement->stars);
         }
 
         $account_information = null;
         if (!empty($response->characters->account_information)) {
             $account_information = new AccountInformation(
                 $response->characters->account_information->loyalty_title,
-                new \DateTime(
+                new Carbon(
                     $response->characters->account_information->created->date,
-                    new \DateTimeZone($response->characters->account_information->created->timezone)
+                    $response->characters->account_information->created->timezone
                 )
             );
         }
@@ -58,7 +59,7 @@ class CharacterResponse extends AbstractResponse
                 }
 
                 $deaths[] = new Death(
-                    new \DateTime($death->date->date, new \DateTimeZone($death->date->timezone)),
+                    new Carbon($death->date->date, $death->date->timezone),
                     $death->level,
                     $death->reason,
                     $involved
@@ -83,10 +84,10 @@ class CharacterResponse extends AbstractResponse
         }
 
         $lastLogin = null;
-        if (isset($response->characters->data->last_logi)) {
-            $lastLogin = new \DateTime(
+        if (isset($response->characters->data->last_login)) {
+            $lastLogin = new Carbon(
                 $response->characters->data->last_login[0]->date,
-                new \DateTimeZone($response->characters->data->last_login[0]->timezone)
+                $response->characters->data->last_login[0]->timezone
             );
         }
 
@@ -105,7 +106,7 @@ class CharacterResponse extends AbstractResponse
             'comment' => $response->characters->data->comment ?? '',
             'account_status' => $response->characters->data->account_status,
             'status' => $response->characters->data->status,
-            'achivements' => $achivements,
+            'achievements' => $achievements,
             'account_information' => $account_information,
             'deaths' => $deaths,
             'other_characters' => $other_characters,

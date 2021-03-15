@@ -3,7 +3,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Guild;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
@@ -19,17 +19,17 @@ class Invitee implements JsonSerializable
     private $name;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $invited;
 
     /**
      * Invitee constructor.
      * @param  string  $name
-     * @param  DateTime  $invited
+     * @param  Carbon  $invited
      * @throws ImmutableException
      */
-    public function __construct(string $name, DateTime $invited)
+    public function __construct(string $name, Carbon $invited)
     {
         $this->handleImmutableConstructor();
 
@@ -46,9 +46,9 @@ class Invitee implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getInvited(): DateTime
+    public function getInvited(): Carbon
     {
         return $this->invited;
     }

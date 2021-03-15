@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Character;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
@@ -13,7 +13,7 @@ class Death implements JsonSerializable
     use ImmutableTrait, SerializableTrait;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $date;
 
@@ -34,13 +34,13 @@ class Death implements JsonSerializable
 
     /**
      * Death constructor.
-     * @param  DateTime  $date
+     * @param  Carbon  $date
      * @param  int  $level
      * @param  string  $reason
      * @param  array  $involved
      * @throws ImmutableException
      */
-    public function __construct(DateTime $date, int $level, string $reason, array $involved)
+    public function __construct(Carbon $date, int $level, string $reason, array $involved)
     {
         $this->handleImmutableConstructor();
 
@@ -51,9 +51,9 @@ class Death implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getDate(): DateTime
+    public function getDate(): Carbon
     {
         return $this->date;
     }

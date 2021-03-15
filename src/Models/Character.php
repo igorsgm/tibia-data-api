@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Models\Character\AccountInformation;
 use Igorsgm\TibiaDataApi\Models\Character\Achievement;
 use Igorsgm\TibiaDataApi\Models\Character\Death;
@@ -87,7 +88,7 @@ class Character implements \JsonSerializable
     /**
      * @var array
      */
-    private $achivements = array();
+    private $achievements = array();
 
     /**
      * @var array
@@ -140,7 +141,7 @@ class Character implements \JsonSerializable
         $character->comment = $response['comment'];
         $character->account_status = $response['account_status'];
         $character->status = $response['status'];
-        $character->achivements = $response['achivements'];
+        $character->achievements = $response['achievements'];
         $character->account_information = $response['account_information'];
         $character->deaths = $response['deaths'];
         $character->other_characters = $response['other_characters'];
@@ -246,9 +247,9 @@ class Character implements \JsonSerializable
     }
 
     /**
-     * @return \DateTime|null
+     * @return Carbon|null
      */
-    public function getLastLogin(): ?\DateTime
+    public function getLastLogin(): ?Carbon
     {
         return $this->last_login;
     }
@@ -280,9 +281,9 @@ class Character implements \JsonSerializable
     /**
      * @return Achievement[]
      */
-    public function getAchivements(): array
+    public function getAchievements(): array
     {
-        return $this->achivements;
+        return $this->achievements;
     }
 
     /**

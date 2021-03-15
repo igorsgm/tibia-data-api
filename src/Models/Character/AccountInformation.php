@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Character;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
@@ -18,7 +18,7 @@ class AccountInformation implements JsonSerializable
     private $loyaltyTitle;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $created;
 
@@ -26,10 +26,10 @@ class AccountInformation implements JsonSerializable
      * AccountInformation constructor.
      *
      * @param  string  $loyaltyTitle
-     * @param  DateTime  $created
+     * @param  Carbon  $created
      * @throws ImmutableException
      */
-    public function __construct(string $loyaltyTitle, DateTime $created)
+    public function __construct(string $loyaltyTitle, Carbon $created)
     {
         $this->handleImmutableConstructor();
 
@@ -46,9 +46,9 @@ class AccountInformation implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getCreated(): DateTime
+    public function getCreated(): Carbon
     {
         return $this->created;
     }

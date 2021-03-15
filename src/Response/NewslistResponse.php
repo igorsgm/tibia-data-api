@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Response;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Models\Newslist;
 use Igorsgm\TibiaDataApi\Models\Newslist\News;
 
@@ -33,7 +34,7 @@ class NewslistResponse extends AbstractResponse
                 $item->news,
                 $item->apiurl,
                 $item->tibiaurl,
-                new \DateTime($item->date->date, new \DateTimeZone($item->date->timezone))
+                new Carbon($item->date->date, $item->date->timezone)
             );
         }
 

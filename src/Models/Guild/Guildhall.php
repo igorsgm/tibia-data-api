@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Guild;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
@@ -23,7 +23,7 @@ class Guildhall implements JsonSerializable
     private $town;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $paid;
 
@@ -42,12 +42,12 @@ class Guildhall implements JsonSerializable
      *
      * @param  string  $name
      * @param  string  $town
-     * @param  DateTime  $paid
+     * @param  Carbon  $paid
      * @param  string  $world
      * @param  int  $houseid
      * @throws ImmutableException
      */
-    public function __construct(string $name, string $town, DateTime $paid, string $world, int $houseid)
+    public function __construct(string $name, string $town, Carbon $paid, string $world, int $houseid)
     {
         $this->handleImmutableConstructor();
 
@@ -75,9 +75,9 @@ class Guildhall implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getPaid(): DateTime
+    public function getPaid(): Carbon
     {
         return $this->paid;
     }

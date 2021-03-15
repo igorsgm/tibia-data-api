@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Newslist;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 use JsonSerializable;
@@ -37,7 +37,7 @@ class News implements JsonSerializable
     private $tibiaurl;
 
     /**
-     * @var DateTime
+     * @var Carbon
      */
     private $date;
 
@@ -48,10 +48,10 @@ class News implements JsonSerializable
      * @param  string  $news
      * @param  string  $apiurl
      * @param  string  $tibiaurl
-     * @param  DateTime  $date
+     * @param  Carbon  $date
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(int $id, string $type, string $news, string $apiurl, string $tibiaurl, DateTime $date)
+    public function __construct(int $id, string $type, string $news, string $apiurl, string $tibiaurl, Carbon $date)
     {
         $this->handleImmutableConstructor();
 
@@ -104,9 +104,9 @@ class News implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getDate(): DateTime
+    public function getDate(): Carbon
     {
         return $this->date;
     }

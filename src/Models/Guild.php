@@ -2,7 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models;
 
-use DateTime;
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Models\Guild\Guildhall;
 use Igorsgm\TibiaDataApi\Models\Guild\Invited;
 use Igorsgm\TibiaDataApi\Models\Guild\Members;
@@ -231,9 +231,9 @@ class Guild implements JsonSerializable
     }
 
     /**
-     * @return DateTime
+     * @return Carbon
      */
-    public function getFounded(): DateTime
+    public function getFounded(): Carbon
     {
         return $this->founded;
     }

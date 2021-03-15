@@ -2,6 +2,7 @@
 
 namespace Igorsgm\TibiaDataApi\Models;
 
+use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Models\World\Character;
 use Igorsgm\TibiaDataApi\Models\World\OnlineRecord;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
@@ -163,22 +164,22 @@ class World implements \JsonSerializable
     }
 
     /**
-     * Gets DateTime from battleye status string.
+     * Gets Carbon from battleye status string.
      *
-     * @return \DateTime|null
+     * @return Carbon|null
      * @throws \Exception
      */
-    public function getBattleyedAt(): ?\DateTime
+    public function getBattlEyedAt(): ?Carbon
     {
         if ($this->battleye_status === 'Not protected by BattlEye.') {
             return null;
         }
 
         if ($this->battleye_status === 'Protected by BattlEye since its release.') {
-            return new \DateTime($this->creation_date.'-01');
+            return new Carbon($this->creation_date.'-01');
         }
 
         preg_match('/Protected by BattlEye since ([a-zA-Z0-9, ]+)\./', $this->battleye_status, $matches);
-        return new \DateTime::createFromFormat('F d, Y', $matches[1]);
+        return Carbon::createFromFormat('F d, Y', $matches[1]);
     }
 }

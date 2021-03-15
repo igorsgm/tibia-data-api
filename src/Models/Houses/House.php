@@ -2,11 +2,11 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Houses;
 
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class House implements JsonSerializable
+class House
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -42,7 +42,7 @@ class House implements JsonSerializable
      * @param  int  $size
      * @param  int  $rent
      * @param  string  $status
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(int $id, string $name, int $size, int $rent, string $status)
     {

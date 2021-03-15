@@ -8,17 +8,16 @@ use Igorsgm\TibiaDataApi\Models\World;
 use Igorsgm\TibiaDataApi\Models\World\Character;
 use Igorsgm\TibiaDataApi\Models\World\OnlineRecord;
 
-/**
- * Class WorldResponse
- * @package Igorsgm\TibiaDataApi\Response
- */
 class WorldResponse extends AbstractResponse
 {
-    /** @var World */
+    /**
+     * @var World
+     */
     private $world;
 
     /**
      * WorldResponse constructor.
+     *
      * @param  \stdClass  $response
      * @throws NotFoundException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
@@ -30,13 +29,13 @@ class WorldResponse extends AbstractResponse
             throw new NotFoundException('World does not exists.');
         }
 
-        $players_online = [];
+        $playersOnline = collect();
         foreach ($response->world->players_online as $player) {
-            $players_online[] = new Character(
+            $playersOnline->push(new Character(
                 $player->name,
                 $player->level,
                 $player->vocation
-            );
+            ));
         }
 
         $this->world = World::createFromArray([
@@ -53,7 +52,7 @@ class WorldResponse extends AbstractResponse
                     $response->world->world_information->online_record->date->timezone
                 )
             ),
-            'players_online' => $players_online,
+            'players_online' => $playersOnline,
             'world_quest_titles' => $response->world->world_information->world_quest_titles,
         ]);
 

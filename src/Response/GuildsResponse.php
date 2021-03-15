@@ -29,14 +29,14 @@ class GuildsResponse extends AbstractResponse
             throw new NotFoundException('Guilds do not exists. Are you sure server name is valid?');
         }
 
-        $active = array();
+        $active = collect();
         foreach ($response->guilds->active as $activeGuild) {
-            $active[] = new Guild($activeGuild->name, $activeGuild->desc, $activeGuild->guildlogo, true);
+            $active->push(new Guild($activeGuild->name, $activeGuild->desc, $activeGuild->guildlogo, true));
         }
 
-        $formation = array();
+        $formation = collect();
         foreach ($response->guilds->formation as $inactiveGuild) {
-            $formation[] = new Guild($inactiveGuild->name, $inactiveGuild->desc, $inactiveGuild->guildlogo, false);
+            $formation->push(new Guild($inactiveGuild->name, $inactiveGuild->desc, $inactiveGuild->guildlogo, false));
         }
 
         $this->guilds = new Guilds($response->guilds->world, $active, $formation);

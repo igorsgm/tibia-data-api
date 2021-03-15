@@ -3,11 +3,11 @@
 namespace Igorsgm\TibiaDataApi\Models\World;
 
 use Carbon\Carbon;
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class OnlineRecord implements JsonSerializable
+class OnlineRecord
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -25,7 +25,7 @@ class OnlineRecord implements JsonSerializable
      * OnlineRecord constructor.
      * @param  int  $number
      * @param  Carbon  $date
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(int $number, Carbon $date)
     {

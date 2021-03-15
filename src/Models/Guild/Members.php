@@ -6,9 +6,8 @@ use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 use Illuminate\Support\Collection;
-use JsonSerializable;
 
-class Members implements JsonSerializable
+class Members
 {
     use ImmutableTrait, SerializableTrait;
 

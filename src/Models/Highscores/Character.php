@@ -2,10 +2,11 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Highscores;
 
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 
-class Character implements \JsonSerializable
+class Character
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -41,7 +42,7 @@ class Character implements \JsonSerializable
      * @param  string  $vocation
      * @param  float|null  $points
      * @param  int|null  $level
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(string $name, int $rank, string $vocation, ?float $points, ?int $level)
     {

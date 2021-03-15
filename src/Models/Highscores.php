@@ -5,8 +5,9 @@ namespace Igorsgm\TibiaDataApi\Models;
 use Igorsgm\TibiaDataApi\Models\Highscores\Character;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
-class Highscores implements \JsonSerializable
+class Highscores
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -18,26 +19,27 @@ class Highscores implements \JsonSerializable
     /**
      * @var string
      */
-    private $type;
+    private $category;
 
     /**
-     * @var array
+     * @var Collection
      */
     private $highscores;
 
     /**
      * Highscores constructor.
+     *
      * @param  string  $world
-     * @param  string  $type
+     * @param  string  $category
      * @param  array  $highscores
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(string $world, string $type, array $highscores)
+    public function __construct(string $world, string $category, Collection $highscores)
     {
         $this->handleImmutableConstructor();
 
         $this->world = $world;
-        $this->type = $type;
+        $this->category = $category;
         $this->highscores = $highscores;
     }
 
@@ -52,15 +54,15 @@ class Highscores implements \JsonSerializable
     /**
      * @return string
      */
-    public function getType(): string
+    public function getCategory(): string
     {
-        return $this->type;
+        return $this->category;
     }
 
     /**
      * @return Character[]
      */
-    public function getHighscores(): array
+    public function getHighscores(): Collection
     {
         return $this->highscores;
     }

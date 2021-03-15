@@ -2,11 +2,11 @@
 
 namespace Igorsgm\TibiaDataApi\Models\World;
 
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class Character implements JsonSerializable
+class Character
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -30,7 +30,7 @@ class Character implements JsonSerializable
      * @param  string  $name
      * @param  int  $level
      * @param  string  $vocation
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(string $name, int $level, string $vocation)
     {

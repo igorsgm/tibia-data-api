@@ -5,9 +5,8 @@ namespace Igorsgm\TibiaDataApi\Models\Character;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class Achievement implements JsonSerializable
+class Achievement
 {
     use ImmutableTrait, SerializableTrait;
 

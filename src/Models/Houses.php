@@ -5,8 +5,9 @@ namespace Igorsgm\TibiaDataApi\Models;
 use Igorsgm\TibiaDataApi\Models\Houses\House;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
-class Houses implements \JsonSerializable
+class Houses
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -26,7 +27,7 @@ class Houses implements \JsonSerializable
     private $type;
 
     /**
-     * @var array
+     * @var Collection
      */
     private $houses;
 
@@ -38,7 +39,7 @@ class Houses implements \JsonSerializable
      * @param  array  $houses
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(string $town, string $world, string $type, array $houses)
+    public function __construct(string $town, string $world, string $type, Collection $houses)
     {
         $this->handleImmutableConstructor();
 
@@ -75,7 +76,7 @@ class Houses implements \JsonSerializable
     /**
      * @return House[]
      */
-    public function getHouses(): array
+    public function getHouses(): Collection
     {
         return $this->houses;
     }

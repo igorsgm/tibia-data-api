@@ -12,7 +12,6 @@ use Igorsgm\TibiaDataApi\Models\Highscores\Character;
  */
 class HighscoresResponse extends AbstractResponse
 {
-
     /**
      * @var Highscores
      */
@@ -30,20 +29,20 @@ class HighscoresResponse extends AbstractResponse
             throw new NotFoundException('World does not exists.');
         }
 
-        $highscores = [];
+        $highscores = collect();
         foreach ($response->highscores->data as $highscore) {
-            $highscores[] = new Character(
+            $highscores->push(new Character(
                 $highscore->name,
                 $highscore->rank,
-                $highscore->voc,
+                $highscore->vocation,
                 $highscore->points ?? null,
                 $highscore->level ?? null
-            );
+            ));
         }
 
         $this->highscores = new Highscores(
-            $response->highscores->world,
-            $response->highscores->type,
+            $response->highscores->filters->world,
+            $response->highscores->filters->category,
             $highscores
         );
 

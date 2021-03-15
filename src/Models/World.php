@@ -3,12 +3,15 @@
 namespace Igorsgm\TibiaDataApi\Models;
 
 use Carbon\Carbon;
+use Exception;
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Models\World\Character;
 use Igorsgm\TibiaDataApi\Models\World\OnlineRecord;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
-class World implements \JsonSerializable
+class World
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -61,7 +64,7 @@ class World implements \JsonSerializable
      * World constructor.
      * @param  string  $name
      * @param  int  $online
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(string $name, int $online)
     {
@@ -74,7 +77,7 @@ class World implements \JsonSerializable
     /**
      * @param  array  $array
      * @return World
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public static function createFromArray(array $array)
     {
@@ -142,7 +145,7 @@ class World implements \JsonSerializable
     /**
      * @return array
      */
-    public function getWorldQuestTitles(): array
+    public function getWorldQuestTitles(): Collection
     {
         return $this->worldQuestTitles;
     }
@@ -158,7 +161,7 @@ class World implements \JsonSerializable
     /**
      * @return Character[]
      */
-    public function getPlayersOnline(): array
+    public function getPlayersOnline(): Collection
     {
         return $this->playersOnline;
     }
@@ -167,7 +170,7 @@ class World implements \JsonSerializable
      * Gets Carbon from battleye status string.
      *
      * @return Carbon|null
-     * @throws \Exception
+     * @throws Exception
      */
     public function getBattlEyedAt(): ?Carbon
     {

@@ -3,11 +3,11 @@
 namespace Igorsgm\TibiaDataApi\Models\Newslist;
 
 use Carbon\Carbon;
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class News implements JsonSerializable
+class News
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -49,7 +49,7 @@ class News implements JsonSerializable
      * @param  string  $apiUrl
      * @param  string  $tibiaUrl
      * @param  Carbon  $date
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(int $id, string $type, string $news, string $apiUrl, string $tibiaUrl, Carbon $date)
     {

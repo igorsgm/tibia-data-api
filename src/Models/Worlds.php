@@ -5,8 +5,9 @@ namespace Igorsgm\TibiaDataApi\Models;
 use Igorsgm\TibiaDataApi\Models\Worlds\World;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
-class Worlds implements \JsonSerializable
+class Worlds
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -26,7 +27,7 @@ class Worlds implements \JsonSerializable
      * @param  array  $worlds
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(int $online, array $worlds)
+    public function __construct(int $online, Collection $worlds)
     {
         $this->handleImmutableConstructor();
 
@@ -45,7 +46,7 @@ class Worlds implements \JsonSerializable
     /**
      * @return World[]
      */
-    public function getWorlds(): array
+    public function getWorlds(): Collection
     {
         return $this->worlds;
     }

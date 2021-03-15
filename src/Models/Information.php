@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 
-class Information implements \JsonSerializable
+class Information
 {
     use ImmutableTrait, SerializableTrait;
 

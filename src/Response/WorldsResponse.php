@@ -24,15 +24,15 @@ class WorldsResponse extends AbstractResponse
      */
     public function __construct(\stdClass $response)
     {
-        $worlds = [];
+        $worlds = collect();
         foreach ($response->worlds->allworlds as $world) {
-            $worlds[] = new World(
+            $worlds->push(new World(
                 $world->name,
                 $world->online,
                 $world->location,
                 $world->worldtype,
                 $world->additional
-            );
+            ));
         }
 
         $this->worlds = new Worlds($response->worlds->online, $worlds);

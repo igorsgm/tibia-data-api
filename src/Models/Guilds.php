@@ -2,11 +2,13 @@
 
 namespace Igorsgm\TibiaDataApi\Models;
 
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Models\Guilds\Guild;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
-class Guilds implements \JsonSerializable
+class Guilds
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -16,12 +18,12 @@ class Guilds implements \JsonSerializable
     private $world;
 
     /**
-     * @var array
+     * @var Collection
      */
     private $active;
 
     /**
-     * @var array
+     * @var Collection
      */
     private $formation;
 
@@ -30,9 +32,9 @@ class Guilds implements \JsonSerializable
      * @param  string  $world
      * @param  array  $active
      * @param  array  $formation
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
-    public function __construct(string $world, array $active, array $formation)
+    public function __construct(string $world, Collection $active, Collection $formation)
     {
         $this->handleImmutableConstructor();
 
@@ -52,7 +54,7 @@ class Guilds implements \JsonSerializable
     /**
      * @return Guild[]
      */
-    public function getActive(): array
+    public function getActive(): Collection
     {
         return $this->active;
     }
@@ -60,7 +62,7 @@ class Guilds implements \JsonSerializable
     /**
      * @return Guild[]
      */
-    public function getFormation(): array
+    public function getFormation(): Collection
     {
         return $this->formation;
     }

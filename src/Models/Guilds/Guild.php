@@ -2,11 +2,11 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Guilds;
 
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class Guild implements JsonSerializable
+class Guild
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -36,7 +36,7 @@ class Guild implements JsonSerializable
      * @param  string  $description
      * @param  string  $logoUrl
      * @param  bool  $isActive
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(string $name, string $description, string $logoUrl, bool $isActive)
     {

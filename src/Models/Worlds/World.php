@@ -2,11 +2,11 @@
 
 namespace Igorsgm\TibiaDataApi\Models\Worlds;
 
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class World implements JsonSerializable
+class World
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -42,7 +42,7 @@ class World implements JsonSerializable
      * @param  string  $location
      * @param  string  $type
      * @param  string  $additional
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(string $name, int $online, string $location, string $type, string $additional)
     {

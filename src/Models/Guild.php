@@ -3,14 +3,14 @@
 namespace Igorsgm\TibiaDataApi\Models;
 
 use Carbon\Carbon;
+use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Models\Guild\Guildhall;
 use Igorsgm\TibiaDataApi\Models\Guild\Invited;
 use Igorsgm\TibiaDataApi\Models\Guild\Members;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class Guild implements JsonSerializable
+class Guild
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -104,7 +104,7 @@ class Guild implements JsonSerializable
      * @param  string  $name
      * @param  string  $description
      * @param  string  $world
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public function __construct(string $name, string $description, string $world)
     {
@@ -118,7 +118,7 @@ class Guild implements JsonSerializable
     /**
      * @param  array  $array
      * @return Guild
-     * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
+     * @throws ImmutableException
      */
     public static function createFromArray(array $array): Guild
     {

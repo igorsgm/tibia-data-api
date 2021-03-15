@@ -6,9 +6,8 @@ use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class AccountInformation implements JsonSerializable
+class AccountInformation
 {
     use ImmutableTrait, SerializableTrait;
 

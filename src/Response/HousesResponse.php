@@ -35,15 +35,15 @@ class HousesResponse extends AbstractResponse
             throw new NotFoundException('Town seems to not exists. Are you sure you type town that has houses?');
         }
 
-        $houses = array();
+        $houses = collect();
         foreach ($response->houses->houses as $house) {
-            $houses[] = new House(
+            $houses->push(new House(
                 $house->houseid,
                 $house->name,
                 $house->size,
                 $house->rent,
                 $house->status
-            );
+            ));
         }
 
         $this->houses = new Houses($response->houses->town, $response->houses->world, $response->houses->type, $houses);

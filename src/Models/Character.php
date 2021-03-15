@@ -12,7 +12,7 @@ use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 use Illuminate\Support\Collection;
 
-class Character implements \JsonSerializable
+class Character
 {
     use ImmutableTrait, SerializableTrait;
 

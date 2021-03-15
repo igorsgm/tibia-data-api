@@ -7,9 +7,8 @@ use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
-use JsonSerializable;
 
-class Invitee implements JsonSerializable
+class Invitee
 {
     use ImmutableTrait, SerializableTrait;
 

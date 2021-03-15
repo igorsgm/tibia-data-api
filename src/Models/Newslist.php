@@ -4,8 +4,9 @@ namespace Igorsgm\TibiaDataApi\Models;
 
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
+use Illuminate\Support\Collection;
 
-class Newslist implements \JsonSerializable
+class Newslist
 {
     use ImmutableTrait, SerializableTrait;
 
@@ -15,17 +16,18 @@ class Newslist implements \JsonSerializable
     private $type;
 
     /**
-     * @var array
+     * @var Collection
      */
     private $news;
 
     /**
      * Newslist constructor.
+     *
      * @param  string  $type
      * @param  array  $news
      * @throws \Igorsgm\TibiaDataApi\Exceptions\ImmutableException
      */
-    public function __construct(string $type, array $news)
+    public function __construct(string $type, Collection $news)
     {
         $this->handleImmutableConstructor();
 
@@ -36,7 +38,7 @@ class Newslist implements \JsonSerializable
     /**
      * @return News[]
      */
-    public function getNews(): array
+    public function getNews(): Collection
     {
         return $this->news;
     }

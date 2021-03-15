@@ -7,9 +7,8 @@ use Igorsgm\TibiaDataApi\Exceptions\ImmutableException;
 use Igorsgm\TibiaDataApi\Traits\ImmutableTrait;
 use Igorsgm\TibiaDataApi\Traits\SerializableTrait;
 use Illuminate\Support\Collection;
-use JsonSerializable;
 
-class Death implements JsonSerializable
+class Death
 {
     use ImmutableTrait, SerializableTrait;
 

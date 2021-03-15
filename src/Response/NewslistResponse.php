@@ -6,10 +6,6 @@ use Carbon\Carbon;
 use Igorsgm\TibiaDataApi\Models\Newslist;
 use Igorsgm\TibiaDataApi\Models\Newslist\News;
 
-/**
- * Class NewslistResponse
- * @package Igorsgm\TibiaDataApi\Response
- */
 class NewslistResponse extends AbstractResponse
 {
 
@@ -26,16 +22,16 @@ class NewslistResponse extends AbstractResponse
      */
     public function __construct(\stdClass $response)
     {
-        $news = array();
+        $news = collect();
         foreach ($response->newslist->data as $item) {
-            $news[] = new News(
+            $news->push(new News(
                 $item->id,
                 $item->type,
                 $item->news,
                 $item->apiurl,
                 $item->tibiaurl,
                 new Carbon($item->date->date, $item->date->timezone)
-            );
+            ));
         }
 
         $this->newslist = new Newslist($response->newslist->type, $news);

@@ -11,7 +11,7 @@ use Igorsgm\TibiaDataApi\Response\NewsResponse;
 class NewsResource extends AbstractResource
 {
     /**
-     * @param $id
+     * @param integer $id
      * @return NewsResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Igorsgm\TibiaDataApi\Exceptions\NotFoundException

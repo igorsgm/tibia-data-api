@@ -3,6 +3,7 @@
 namespace Igorsgm\TibiaDataApi\Resources;
 
 use Igorsgm\TibiaDataApi\TibiaDataApi;
+use Psr\Http\Message\UriInterface;
 
 /**
  * Class AbstractResource
@@ -10,8 +11,6 @@ use Igorsgm\TibiaDataApi\TibiaDataApi;
  */
 class AbstractResource
 {
-    const API_URL = '/v2/';
-
     /**
      * @var TibiaDataApi
      */
@@ -27,8 +26,8 @@ class AbstractResource
     }
 
     /**
-     * @param $method
-     * @param $uri
+     * @param  string  $method  HTTP method.
+     * @param  string|UriInterface  $uri  URI object or string.
      * @param  array  $headers
      * @param  null  $body
      * @param  string  $protocolVersion
@@ -43,7 +42,9 @@ class AbstractResource
         $protocolVersion = '1.1'
     ): \stdClass {
 
-        $response = $this->tibiaData->getHttpClient()->request($method, self::API_URL.$uri, [
+        $uri = '/'.config('tibia-data-api.version').'/'.$uri;
+
+        $response = $this->tibiaData->getHttpClient()->request($method, $uri, [
             'headers' => $headers,
             'body' => $body,
             'version' => $protocolVersion

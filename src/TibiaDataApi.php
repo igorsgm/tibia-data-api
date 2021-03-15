@@ -3,7 +3,6 @@
 namespace Igorsgm\TibiaDataApi;
 
 use GuzzleHttp\Client;
-use Igorsgm\TibiaDataApi\Resources;
 use Igorsgm\TibiaDataApi\Resources\CharactersResource;
 use Igorsgm\TibiaDataApi\Resources\GuildResource;
 use Igorsgm\TibiaDataApi\Resources\GuildsResource;
@@ -19,19 +18,19 @@ use Illuminate\Container\Container;
  */
 class TibiaDataApi
 {
-    /**
+    /**s
      * @var Client
      */
     protected $httpClient;
 
     /**
      * TibiaDataApi constructor.
-     * @param Container $container
+     * @param  Container  $container
      */
     public function __construct()
     {
         $this->httpClient = new Client([
-            'base_uri' => 'https://api.tibiadata.com'
+            'base_uri' => config('tibia-data-api.base_uri')
         ]);
     }
 
